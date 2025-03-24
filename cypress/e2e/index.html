@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página de Comentários</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function adicionarComentario() {
+
+            document.getElementById('loading').style.display = 'block';
+
+
+
+            setTimeout(() => {
+
+                document.getElementById('loading').style.display = 'none';
+
+
+
+                const nome = document.getElementById('nome').value;
+
+                const comentario = document.getElementById('comentario').value;
+
+
+
+                if (nome && comentario) {
+
+                    const novoComentario = document.createElement('p');
+
+                    novoComentario.textContent = `${nome}: ${comentario}`;
+
+                    document.getElementById('comment-section').appendChild(novoComentario);
+
+                }
+
+            }, 2000);
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Deixe seu comentário</h1>
+
+
+
+    <form id="comment-form" onsubmit="event.preventDefault(); adicionarComentario();">
+
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+        <textarea id="comentario" placeholder="Escreva seu comentário aqui..." required></textarea>
+
+        <button id="submit-button" type="submit">Enviar Comentário</button>
+
+    </form>
+
+
+
+    <p id="loading" style="display: none;">Enviando...</p>
+
+
+
+    <h2>Comentários</h2>
+
+    <div id="comment-section"></div>
+
+</body>
+
+</html>
