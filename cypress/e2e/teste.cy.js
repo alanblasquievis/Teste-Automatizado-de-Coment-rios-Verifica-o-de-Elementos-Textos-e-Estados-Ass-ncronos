@@ -50,6 +50,6 @@ describe('template spec', () => {
 
     // Confirmar que o comentário foi adicionado à lista
     cy.get('#comment-section').should('not.be.empty');
-    cy.get('#comment-section').contains('Alan: Este é um comentário de teste.');
+    cy.get('#comment-section').contains('Salve! Este é um comentário de teste.');
   });
 });
